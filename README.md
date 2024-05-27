@@ -6,7 +6,7 @@ Se opta por usar tecnologías VR, las cuales han sido estudiadas previamente con
 
 ## Estado del proyecto
 
-En este momento el videojuego cuenta con un menú inicial, que permite usar eye-tracking para interactuar con los botones y elegir el minijuego en cuestión. En este momento (se actualizará el README) se cuenta con una version simplificada del primer minijuego, que consiste en atrapar portales y esquivar meteoritos que se acercan hacia el jugador.
+En este momento el videojuego cuenta con un menú inicial, que permite usar eye-tracking para interactuar con los botones y elegir el minijuego en cuestión. Se cuenta con una version simplificada del primer minijuego, que consiste en atrapar portales y esquivar meteoritos que se acercan hacia el jugador.
 Se debe mirar en la dirección del portal y no al meteorito, acumulando puntos y un combo, que aumenta la velocidad de los elementos en pantalla y acelera la música.
 
 ## WIP
@@ -26,3 +26,5 @@ Finalmente, es necesario mostrar las apps de origen desconocido en el casco, don
 ## Bugs conocidos y trabajo a futuro
 
 El primer minijuego no posee la precisión suficiente con la detección de los ojos, la cual podría ser mejorada cambiando el objeto con el que chocan los rayos emitidos desde los ojos. La idea sería cambiar el plano por una pantalla curva, similar a un lente, para ajustar la posición del Player de manera más precisa. 
+
+Se agregará una tabla de leaderboards con los puntajes de cada persona, junto con una forma de identificar al jugador.
