@@ -2,7 +2,7 @@
 
 El videojuego se enmarca en el desarrollo de mi memoria titulada "Prototipado de intervenciones mediadas en realidad virtual para controlar el manejo del dolor agudo en pacientes con secuelas de quemaduras", se pretende buscar alternativas efectivas para reducir la percepción de dolor en pacientes de COANIQUEM que han sufrido quemaduras.
 
-Se opta por usar tecnologías VR, las cuales han sido estudiadas previamente con resultados satisfactorios. Al presentarse la necesidad de incluir a personas con quemaduras en manos y brazos, se piensa en la solución usando el casco Meta Quest Pro, que posee eye-tracking y se crean dos minijuegos simples para probar la efectividad del software.
+Se opta por usar tecnologías VR, las cuales han sido estudiadas previamente con resultados satisfactorios. Al presentarse la necesidad de incluir a personas con quemaduras en manos y brazos se piensa en la solución usando el casco Meta Quest Pro, que posee eye-tracking, y se crean dos minijuegos simples para probar la efectividad del software.
 
 ## Estado del proyecto
 
