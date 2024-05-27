@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 78fd17becfc7b22448c54b5f0c0d92e4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - portal: {fileID: 8185108764223863274, guid: 941d964124cdf704f9c36638bca0717d, type: 3}
+  - meteor: {instanceID: 0}
+  - wall: {instanceID: 0}
+  - spawnPlane: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
