@@ -18,7 +18,7 @@ public class GoodObjectInstantiator : MonoBehaviour, IEyeInteractable
     {
         GameObject objectToSpawn = null;
         objectToSpawn = randomObjectToSpawn[random.Next(randomObjectToSpawn.Length)];
-        Instantiate(objectToSpawn);
+        Instantiate(objectToSpawn, transform.position, transform.rotation, transform);
     }
     void Update()
     {

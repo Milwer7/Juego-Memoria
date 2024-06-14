@@ -13,8 +13,9 @@ public class SecondGameSpawner : MonoBehaviour
     // Initial time of every phase for the game
     private float actualTime = 10f;
     // Active spawners, scaling with difficulty
-    private List<GameObject> activeSpawners;
+    private List<GameObject> activeSpawners = new List<GameObject>();
 
+    [SerializeField]
     private PointsLifeManager Manager;
 
     // Reference to the running coroutine

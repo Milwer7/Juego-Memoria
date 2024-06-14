@@ -15,7 +15,7 @@ public class PointsLifeManager : MonoBehaviour
 
     public int GetScore() { return actualScore; }
 
-    public void clearPhase() { goodScores = 0; badScores = 0; }
+    public void clearPhase() { goodScores = 0; badScores = 0; maxGoodScores = 0; }
 
     public void UpdatePhase()
     {

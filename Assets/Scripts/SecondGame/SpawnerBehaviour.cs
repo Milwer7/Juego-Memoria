@@ -10,6 +10,7 @@ public class SpawnerBehaviour : MonoBehaviour, ISpawner
 
     // Random 
     private System.Random random = new System.Random();
+    [SerializeField]
     private PointsLifeManager Manager;
 
     public void Spawn()
@@ -26,6 +27,7 @@ public class SpawnerBehaviour : MonoBehaviour, ISpawner
             GameObject spawnedObject = Instantiate(objectToSpawn, transform.position, transform.rotation, transform);
             GoodObjectInstantiator goodObjectInstantiator = spawnedObject.GetComponent<GoodObjectInstantiator>();
             goodObjectInstantiator.parentSpawner = this;
+            Manager.maxGoodScores++;
         }
         else
         {
