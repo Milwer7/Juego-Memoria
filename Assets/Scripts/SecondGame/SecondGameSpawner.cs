@@ -41,7 +41,27 @@ public class SecondGameSpawner : MonoBehaviour
         }
     }
 
-    // Coroutine for spawning and clearing
+    public void SkipPhase()
+    {
+        // Triggering difficulty increase
+        Manager.maxSpawners = actualDifficulty + 1;
+        if (actualDifficulty < maxDifficulty && Manager.IsRoundPerfect())
+        {
+            actualDifficulty += 1;
+            activeSpawners.Add(spawnersPosition[actualDifficulty]);
+        }
+        // Updating the Manager so it increases the points obtained.
+        Manager.UpdatePhase();
+
+        // Deleting the objects spawned by the activeSpawners
+        foreach (GameObject spawner in activeSpawners)
+        {
+            spawner.GetComponent<ISpawner>().ClearChilds();
+        }
+        Manager.clearPhase();
+    }
+
+    // Coroutine for spawning and clearing objects
     private IEnumerator SpawnCycle()
     {
         while (true)
@@ -51,29 +71,23 @@ public class SecondGameSpawner : MonoBehaviour
             {
                 spawner.GetComponent<ISpawner>().Spawn();
             }
-
-            Manager.maxSpawners = actualDifficulty + 1;
-
             // Waiting the phase time
             yield return new WaitForSeconds(actualTime);
 
-            // Triggering difficulty increase
-            if (actualDifficulty < maxDifficulty && Manager.IsRoundPerfect())
-            {
-                actualDifficulty += 1;
-                activeSpawners.Add(spawnersPosition[actualDifficulty]);
-            }
-            // Updates the Manager Phase so it increases the points obtained.
-            Manager.UpdatePhase();
-            
-            // Deleting the objects spawned by the activeSpawners
-            foreach (GameObject spawner in activeSpawners)
-            {
-                spawner.GetComponent<ISpawner>().ClearChilds();
-            }
-            Manager.clearPhase();
+            // Triggering phase end
+            SkipPhase();
+
             // Wait some time after clearing for showing a message to the player
             yield return new WaitForSeconds(4f);
         }
+    }
+
+    // Method to advance to the next phase immediately
+    public void AdvanceToNextPhase()
+    {
+        // Stopping the coroutine, skipping phase and starting it again
+        StopCoroutine(SpawnCycle());
+        SkipPhase();
+        StartCoroutine(SpawnCycle());
     }
 }
