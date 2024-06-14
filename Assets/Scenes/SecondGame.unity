@@ -37392,6 +37392,7 @@ MonoBehaviour:
   badScores: 0
   maxGoodScores: 0
   maxSpawners: 0
+  SpawnManager: {fileID: 1035695217}
 --- !u!4 &655062984
 Transform:
   m_ObjectHideFlags: 0

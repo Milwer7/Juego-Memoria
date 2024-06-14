@@ -11,6 +11,7 @@ public class PointsLifeManager : MonoBehaviour
 
     private int life = 3;
 
+    [SerializeField]
     private SecondGameSpawner SpawnManager;
 
     public int GetScore() { return actualScore; }
