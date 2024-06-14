@@ -30640,8 +30640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c15d9daeb674499f8bad26403db63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodObjectPrefab: {fileID: 0}
-  badObjectPrefab: {fileID: 0}
+  goodObjectPrefab: {fileID: 8929510900352660841, guid: 1a3acb7b71a7b0a4d9347a28154181bd, type: 3}
+  badObjectPrefab: {fileID: 6479308793551455149, guid: acb153bd454cd2c4485e4ef46ae45695, type: 3}
 --- !u!4 &596129955
 Transform:
   m_ObjectHideFlags: 0
@@ -41874,8 +41874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c15d9daeb674499f8bad26403db63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodObjectPrefab: {fileID: 0}
-  badObjectPrefab: {fileID: 0}
+  goodObjectPrefab: {fileID: 8929510900352660841, guid: 1a3acb7b71a7b0a4d9347a28154181bd, type: 3}
+  badObjectPrefab: {fileID: 6479308793551455149, guid: acb153bd454cd2c4485e4ef46ae45695, type: 3}
 --- !u!4 &822729197
 Transform:
   m_ObjectHideFlags: 0
@@ -47110,8 +47110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c15d9daeb674499f8bad26403db63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodObjectPrefab: {fileID: 0}
-  badObjectPrefab: {fileID: 0}
+  goodObjectPrefab: {fileID: 8929510900352660841, guid: 1a3acb7b71a7b0a4d9347a28154181bd, type: 3}
+  badObjectPrefab: {fileID: 6479308793551455149, guid: acb153bd454cd2c4485e4ef46ae45695, type: 3}
 --- !u!4 &986685314
 Transform:
   m_ObjectHideFlags: 0
@@ -56970,8 +56970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c15d9daeb674499f8bad26403db63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodObjectPrefab: {fileID: 0}
-  badObjectPrefab: {fileID: 0}
+  goodObjectPrefab: {fileID: 8929510900352660841, guid: 1a3acb7b71a7b0a4d9347a28154181bd, type: 3}
+  badObjectPrefab: {fileID: 6479308793551455149, guid: acb153bd454cd2c4485e4ef46ae45695, type: 3}
 --- !u!4 &1313862914
 Transform:
   m_ObjectHideFlags: 0
@@ -68102,8 +68102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c15d9daeb674499f8bad26403db63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodObjectPrefab: {fileID: 0}
-  badObjectPrefab: {fileID: 0}
+  goodObjectPrefab: {fileID: 8929510900352660841, guid: 1a3acb7b71a7b0a4d9347a28154181bd, type: 3}
+  badObjectPrefab: {fileID: 6479308793551455149, guid: acb153bd454cd2c4485e4ef46ae45695, type: 3}
 --- !u!4 &1555133535
 Transform:
   m_ObjectHideFlags: 0
