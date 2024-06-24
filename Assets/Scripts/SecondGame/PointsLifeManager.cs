@@ -1,23 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PointsLifeManager : MonoBehaviour
 {
+    // Good and Bad scores, with the max spawners and max posible good scores.
     public int goodScores = 0, badScores = 0;
-    public int maxGoodScores, maxSpawners;
-
+    public int maxGoodScores = 0, maxSpawners;
+    // Actual score of the player.
     private int actualScore = 0;
-
+    // Actual life of the player.
     private int life = 3;
-
+    // Controller for the 5 spawners.
     [SerializeField]
     private SecondGameSpawner SpawnManager;
+    // Text with the scores of the player.
+    [SerializeField]
+    private TextMeshPro PhaseText;
 
+    // Getter for the score.
     public int GetScore() { return actualScore; }
 
-    public void clearPhase() { goodScores = 0; badScores = 0; maxGoodScores = 0; }
+    // Clears the scores after a phase.
+    public void ClearPhase() { goodScores = 0; badScores = 0; maxGoodScores = 0; }
 
+    // Updates the scores of the player at the end of a phase.
     public void UpdatePhase()
     {
         if (badScores == 0 && goodScores > 0)
@@ -29,13 +38,31 @@ public class PointsLifeManager : MonoBehaviour
         {
             life--;
         }
+        // Calls the end of the game when losing.
         if (life == 0 && badScores > 0)
         {
+            life--;
             SpawnManager.EndGame(actualScore);
         }
-        clearPhase();
+        UpdatePhaseText();
     }
 
+    // Updates the scores of the player.
+    public void UpdatePhaseText()
+    {
+        PhaseText.text = $"Obtuviste {goodScores} comidas buenas y {badScores} comidas malas.\n";
+        if (life >= 0)
+        {
+            PhaseText.text += life == 1 ? $"Te queda {life} vida.\n" : $"Te quedan {life} vidas.\n";
+            PhaseText.text += $"Tu puntaje actual es: {actualScore}";
+        }
+        else
+        {
+            PhaseText.text += $"Te quedaste sin vidas y tu puntaje final fue de {actualScore}.\n ¡Bien Jugado!";
+        }
+    }
+
+    // Checks if all the good scores were obtained and no bad scores were obtained.
     public bool IsRoundPerfect()
     {
         if (badScores == 0 && goodScores == maxGoodScores)

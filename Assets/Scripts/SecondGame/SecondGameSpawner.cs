@@ -1,37 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class SecondGameSpawner : MonoBehaviour
 {
-    // GameObjects on the spawnPosition of the interactables for the game
+    // GameObjects on the spawnPosition of the interactables for the game.
     [SerializeField]
     private GameObject[] spawnersPosition;
-    // Initial difficulty
+    // Initial difficulty.
     private int actualDifficulty = 1, maxDifficulty = 4;
-    // Initial time of every phase for the game
+    // Initial time of every phase for the game.
     private float actualTime = 10f;
-    // Active spawners, scaling with difficulty
+    // Active spawners, scaling with difficulty.
     private List<GameObject> activeSpawners = new List<GameObject>();
-
+    // Points and life manager object.
     [SerializeField]
     private PointsLifeManager Manager;
+    // Text with the scores of the player.
+    [SerializeField]
+    private TextMeshPro PhaseText;
 
-    // Reference to the running coroutine
+    // Reference to the running coroutine.
     private Coroutine spawnCycleCoroutine;
 
     void Start()
     {
-        // Left and Right spawns are active on base difficulty
+        // Left and Right spawns are active on base difficulty.
         activeSpawners.Add(spawnersPosition[0]);
         activeSpawners.Add(spawnersPosition[1]);
 
         StartCoroutine(SpawnCycle());
     }
 
-    // Ends the spawning Coroutine
-    // TODO: Redirect to score window
+    // Ends the spawning Coroutine.
+    // TODO: Redirect to final score window
     public void EndGame(int score)
     {
         if (spawnCycleCoroutine != null)
@@ -41,9 +45,10 @@ public class SecondGameSpawner : MonoBehaviour
         }
     }
 
+    // Skips to the next phase of the game.
     public void SkipPhase()
     {
-        // Triggering difficulty increase
+        // Triggering difficulty increase.
         Manager.maxSpawners = actualDifficulty + 1;
         if (actualDifficulty < maxDifficulty && Manager.IsRoundPerfect())
         {
@@ -52,40 +57,43 @@ public class SecondGameSpawner : MonoBehaviour
         }
         // Updating the Manager so it increases the points obtained.
         Manager.UpdatePhase();
-
-        // Deleting the objects spawned by the activeSpawners
+        // Showing Phase Stats.
+        PhaseText.gameObject.SetActive(true);
+        // Deleting the objects spawned by the activeSpawners.
         foreach (GameObject spawner in activeSpawners)
         {
             spawner.GetComponent<ISpawner>().ClearChilds();
         }
-        Manager.clearPhase();
+        Manager.ClearPhase();
     }
 
-    // Coroutine for spawning and clearing objects
+    // Coroutine for spawning and clearing objects.
     private IEnumerator SpawnCycle()
     {
         while (true)
         {
-            // Call the Spawn method on all active spawners
+            // Hiding Phase Stats.
+            PhaseText.gameObject.SetActive(false);
+            // Call the Spawn method on all active spawners.
             foreach (GameObject spawner in activeSpawners)
             {
                 spawner.GetComponent<ISpawner>().Spawn();
             }
-            // Waiting the phase time
+            // Waiting the phase time.
             yield return new WaitForSeconds(actualTime);
 
-            // Triggering phase end
+            // Triggering phase end.
             SkipPhase();
 
-            // Wait some time after clearing for showing a message to the player
+            // Wait some time after clearing for showing a message to the player.
             yield return new WaitForSeconds(4f);
         }
     }
 
-    // Method to advance to the next phase immediately
+    // Method to advance to the next phase immediately.
     public void AdvanceToNextPhase()
     {
-        // Stopping the coroutine, skipping phase and starting it again
+        // Stopping the coroutine, skipping phase and starting it again.
         StopCoroutine(SpawnCycle());
         SkipPhase();
         StartCoroutine(SpawnCycle());
