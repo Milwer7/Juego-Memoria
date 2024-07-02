@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5175661608252480158}
   - component: {fileID: 2863771388844011039}
   - component: {fileID: 1390848334112939853}
+  - component: {fileID: 4426929472177141686}
   m_Layer: 6
   m_Name: BadObject
   m_TagString: Untagged
@@ -66,9 +67,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9222945, g: 0.9245283, b: 0.30962977, a: 1}
+  m_Color: {r: 0.8396226, g: 0.61343557, b: 0.36040404, a: 1}
   m_Intensity: 1
-  m_Range: 2
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -137,3 +138,24 @@ MonoBehaviour:
   marginZ: 15
   floatSpeed: 2
   floatAmplitude: 0.1
+--- !u!135 &4426929472177141686
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479308793551455149}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

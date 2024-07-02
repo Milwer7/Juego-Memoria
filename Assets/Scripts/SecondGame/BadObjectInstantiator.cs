@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,12 +33,12 @@ public class BadObjectInstantiator : MonoBehaviour, IEyeInteractable
         if (pointerDown)
         {
             pointerDownTimer += Time.deltaTime;
-            if (pointerDownTimer > requiredHoldTime)
+            if (pointerDownTimer >= requiredHoldTime)
             {
                 // Destroy the object.
                 // TODO: Play a according sound 
                 isDestroyedByClick = true;
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
     }

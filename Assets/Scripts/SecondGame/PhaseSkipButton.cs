@@ -18,11 +18,11 @@ public class PhaseSkipButton : MonoBehaviour, IEyeInteractable
         if (pointerDown)
         {
             pointerDownTimer += Time.deltaTime;
-            if (pointerDownTimer > requiredHoldTime)
+            if (pointerDownTimer >= requiredHoldTime)
             {
                 // Skips the Phase on click.
                 // TODO: Play a according sound 
-                spawner.SkipPhase();
+                spawner.AdvanceToNextPhase();
                 pointerDownTimer = 0;
             }
         }

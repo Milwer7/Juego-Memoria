@@ -21,6 +21,9 @@ public class SecondGameSpawner : MonoBehaviour
     // Text with the scores of the player.
     [SerializeField]
     private TextMeshPro PhaseText;
+    // Text with the initial instructions.
+    [SerializeField]
+    private GameObject TutorialObject, SkipPhaseObject;
 
     // Reference to the running coroutine.
     private Coroutine spawnCycleCoroutine;
@@ -30,7 +33,6 @@ public class SecondGameSpawner : MonoBehaviour
         // Left and Right spawns are active on base difficulty.
         activeSpawners.Add(spawnersPosition[0]);
         activeSpawners.Add(spawnersPosition[1]);
-
         StartCoroutine(SpawnCycle());
     }
 
@@ -48,6 +50,7 @@ public class SecondGameSpawner : MonoBehaviour
     // Skips to the next phase of the game.
     public void SkipPhase()
     {
+        SkipPhaseObject.SetActive(false);
         // Triggering difficulty increase.
         Manager.maxSpawners = actualDifficulty + 1;
         if (actualDifficulty < maxDifficulty && Manager.IsRoundPerfect())
@@ -72,8 +75,15 @@ public class SecondGameSpawner : MonoBehaviour
     {
         while (true)
         {
+            if(TutorialObject.activeInHierarchy)
+            {
+                yield return new WaitForSeconds(10f);
+                TutorialObject.SetActive(false);
+            }
             // Hiding Phase Stats.
             PhaseText.gameObject.SetActive(false);
+            // Reactivating SkipPhase Area.
+            SkipPhaseObject.SetActive(true);
             // Call the Spawn method on all active spawners.
             foreach (GameObject spawner in activeSpawners)
             {
