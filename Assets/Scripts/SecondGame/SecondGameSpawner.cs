@@ -24,6 +24,8 @@ public class SecondGameSpawner : MonoBehaviour
     // Text with the initial instructions.
     [SerializeField]
     private GameObject TutorialObject, SkipPhaseObject;
+    // Checking if skipPhase was triggered.
+    private bool isSkip = false;
 
     // Reference to the running coroutine.
     Coroutine spawnCycleCoroutine;
@@ -80,6 +82,13 @@ public class SecondGameSpawner : MonoBehaviour
                 yield return new WaitForSeconds(20f);
                 TutorialObject.SetActive(false);
             }
+            if(isSkip)
+            {
+                isSkip = false;
+                PhaseText.gameObject.SetActive(true);
+                yield return new WaitForSeconds(4f);
+            }
+
             // Hiding Phase Stats.
             PhaseText.gameObject.SetActive(false);
             // Reactivating SkipPhase Area.
@@ -106,6 +115,7 @@ public class SecondGameSpawner : MonoBehaviour
         // Stopping the coroutine, skipping phase and starting it again.
         StopCoroutine(spawnCycleCoroutine);
         SkipPhase();
+        isSkip = true;
         spawnCycleCoroutine = StartCoroutine(SpawnCycle());
     }
 }

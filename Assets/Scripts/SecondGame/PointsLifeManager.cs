@@ -53,16 +53,12 @@ public class PointsLifeManager : MonoBehaviour
     public void UpdatePhaseText()
     {
         PhaseText.text = "";
-        PhaseText.text += goodScores == 1 ? $"Obtuviste {goodScores} comida buena. " : $"Obtuviste {goodScores} comidas buenas. ";
-        PhaseText.text += badScores == 1 ? $"Obtuviste {badScores} comida mala. " : $"Obtuviste {badScores} comidas malas. ";
+        PhaseText.text += goodScores == 1 ? $"{goodScores} comida buena. " : $"{goodScores} comidas buenas. ";
+        PhaseText.text += badScores == 1 ? $"{badScores} comida mala. " : $"{badScores} comidas malas. ";
         if (life >= 0)
         {
-            PhaseText.text += life == 1 ? $"Te queda {life} vida.\n" : $"Te quedan {life} vidas.\n";
-            PhaseText.text += $"Tu puntaje actual es: {actualScore}";
-        }
-        else
-        {
-            PhaseText.text += $"Te quedaste sin vidas y tu puntaje final fue de {actualScore}.\n ¡Bien Jugado!";
+            PhaseText.text += life == 1 ? $"{life} vida restante.\n" : $"{life} vidas restantes.\n";
+            PhaseText.text += $"Puntaje actual: {actualScore}";
         }
     }
 
