@@ -43,6 +43,8 @@ public class PointsLifeManager : MonoBehaviour
         {
             life--;
             SpawnManager.EndGame(actualScore);
+            PhaseText.text = $"Obtuviste {actualScore} en total. Felicidades.";
+            return;
         }
         UpdatePhaseText();
     }
@@ -50,7 +52,9 @@ public class PointsLifeManager : MonoBehaviour
     // Updates the scores of the player.
     public void UpdatePhaseText()
     {
-        PhaseText.text = $"Obtuviste {goodScores} comidas buenas y {badScores} comidas malas.\n";
+        PhaseText.text = "";
+        PhaseText.text += goodScores == 1 ? $"Obtuviste {goodScores} comida buena. " : $"Obtuviste {goodScores} comidas buenas. ";
+        PhaseText.text += badScores == 1 ? $"Obtuviste {badScores} comida mala. " : $"Obtuviste {badScores} comidas malas. ";
         if (life >= 0)
         {
             PhaseText.text += life == 1 ? $"Te queda {life} vida.\n" : $"Te quedan {life} vidas.\n";

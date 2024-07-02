@@ -26,24 +26,24 @@ public class SecondGameSpawner : MonoBehaviour
     private GameObject TutorialObject, SkipPhaseObject;
 
     // Reference to the running coroutine.
-    private Coroutine spawnCycleCoroutine;
+    Coroutine spawnCycleCoroutine;
 
     void Start()
     {
         // Left and Right spawns are active on base difficulty.
         activeSpawners.Add(spawnersPosition[0]);
         activeSpawners.Add(spawnersPosition[1]);
-        StartCoroutine(SpawnCycle());
+        spawnCycleCoroutine = StartCoroutine(SpawnCycle());
     }
 
     // Ends the spawning Coroutine.
-    // TODO: Redirect to final score window
     public void EndGame(int score)
     {
         if (spawnCycleCoroutine != null)
         {
             StopCoroutine(spawnCycleCoroutine);
             spawnCycleCoroutine = null;
+            PhaseText.gameObject.SetActive(true);
         }
     }
 
@@ -77,7 +77,7 @@ public class SecondGameSpawner : MonoBehaviour
         {
             if(TutorialObject.activeInHierarchy)
             {
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(20f);
                 TutorialObject.SetActive(false);
             }
             // Hiding Phase Stats.
@@ -104,8 +104,8 @@ public class SecondGameSpawner : MonoBehaviour
     public void AdvanceToNextPhase()
     {
         // Stopping the coroutine, skipping phase and starting it again.
-        StopCoroutine(SpawnCycle());
+        StopCoroutine(spawnCycleCoroutine);
         SkipPhase();
-        StartCoroutine(SpawnCycle());
+        spawnCycleCoroutine = StartCoroutine(SpawnCycle());
     }
 }

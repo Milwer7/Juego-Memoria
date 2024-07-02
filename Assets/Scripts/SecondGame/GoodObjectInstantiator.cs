@@ -11,6 +11,9 @@ public class GoodObjectInstantiator : MonoBehaviour, IEyeInteractable
     private System.Random random = new System.Random();
     // Parent spawner to notify.
     public SpawnerBehaviour parentSpawner;
+    // Sound to play on interaction.
+    [SerializeField]
+    private AudioClip DestroySound;
 
     // eye button clicking variables.
     private bool pointerDown;
@@ -36,6 +39,7 @@ public class GoodObjectInstantiator : MonoBehaviour, IEyeInteractable
             {
                 // Destroy the object.
                 // TODO: Play a according sound 
+                SoundFXManager.instance.PlaySoundFXClip(DestroySound, this.gameObject.transform, 0.8f);
                 isDestroyedByClick = true;
                 Destroy(this.gameObject);
             }

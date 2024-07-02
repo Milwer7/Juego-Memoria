@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 3993196853935147428, guid: ba93ae1410e341d41be192f9d77df500, type: 3}
   - {fileID: 5175267955941368727, guid: 517e976be9ac3ee41a961dd8bf728615, type: 3}
   parentSpawner: {fileID: 0}
+  DestroySound: {fileID: 8300000, guid: ddd16025d5ef32249bf91ac485f99fd8, type: 3}
   requiredHoldTime: 2
 --- !u!108 &2402470279953520239
 Light:
