@@ -52,13 +52,13 @@ public class PointsLifeManager : MonoBehaviour
     // Updates the scores of the player.
     public void UpdatePhaseText()
     {
-        PhaseText.text = "";
-        PhaseText.text += goodScores == 1 ? $"{goodScores} comida buena.\n" : $"{goodScores} comidas buenas.\n";
-        PhaseText.text += badScores == 1 ? $"{badScores} comida mala. " : $"{badScores} comidas malas. ";
+        PhaseText.text = "Comidas\n";
+        PhaseText.text += $"Saludable: {goodScores}\n";
+        PhaseText.text += $"Chatarra: {badScores}\n";
         if (life >= 0)
         {
-            PhaseText.text += life == 1 ? $"{life} vida restante.\n" : $"{life} vidas restantes.\n";
-            PhaseText.text += $"Puntaje actual: {actualScore}";
+            PhaseText.text += $"Vidas: {life}\n";
+            PhaseText.text += $"Puntaje: {actualScore}";
         }
     }
 

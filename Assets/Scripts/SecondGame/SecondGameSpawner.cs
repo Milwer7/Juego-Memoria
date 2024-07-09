@@ -47,6 +47,7 @@ public class SecondGameSpawner : MonoBehaviour
             spawnCycleCoroutine = null;
             PhaseText.gameObject.SetActive(true);
         }
+        StartCoroutine(ReturnToMenu());
     }
 
     // Skips to the next phase of the game.
@@ -107,6 +108,13 @@ public class SecondGameSpawner : MonoBehaviour
             // Wait some time after clearing for showing a message to the player.
             yield return new WaitForSeconds(4f);
         }
+    }
+
+    // Coroutine to return to main menu after game is completed.
+    private IEnumerator ReturnToMenu()
+    {
+        yield return new WaitForSeconds(12f);
+        SceneChanger.instance.ChangeScene(0);
     }
 
     // Method to advance to the next phase immediately.
