@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class SpawnManager : MonoBehaviour
 {
-    /// TODO: Implement Walls, now the mechanics will ignore wall and wallAmount.
     [SerializeField]
     private GameObject portal, meteor;
     [SerializeField]
@@ -18,6 +17,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private PointsManager Manager;
     public float duration = 4.0f;
+    [SerializeField]
+    private GameObject tutorialObject;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,8 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnObjects()
     {
+        yield return new WaitForSeconds(10f);
+        tutorialObject.SetActive(false);
         while (portalAmount + meteorAmount > 0)
         {
             yield return new WaitForSeconds(3f); // Wait for 3 seconds
