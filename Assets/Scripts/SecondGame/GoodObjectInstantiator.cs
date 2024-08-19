@@ -38,7 +38,6 @@ public class GoodObjectInstantiator : MonoBehaviour, IEyeInteractable
             if (pointerDownTimer >= requiredHoldTime)
             {
                 // Destroy the object.
-                // TODO: Play a according sound 
                 SoundFXManager.instance.PlaySoundFXClip(DestroySound, this.gameObject.transform, 0.8f);
                 isDestroyedByClick = true;
                 Destroy(this.gameObject);
