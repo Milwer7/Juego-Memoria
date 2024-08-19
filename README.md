@@ -1,4 +1,4 @@
-# Galaxies and Candies (Nombre preliminar)
+# Galaxy Restaurant
 
 El videojuego se enmarca en el desarrollo de mi memoria titulada "Prototipado de intervenciones mediadas en realidad virtual para controlar el manejo del dolor agudo en pacientes con secuelas de quemaduras", se pretende buscar alternativas efectivas para reducir la percepción de dolor en pacientes de COANIQUEM que han sufrido quemaduras.
 
@@ -6,12 +6,14 @@ Se opta por usar tecnologías VR, las cuales han sido estudiadas previamente con
 
 ## Estado del proyecto
 
-En este momento el videojuego cuenta con un menú inicial, que permite usar eye-tracking para interactuar con los botones y elegir el minijuego en cuestión. Se cuenta con una version simplificada del primer minijuego, que consiste en atrapar portales y esquivar meteoritos que se acercan hacia el jugador.
+En este momento el videojuego cuenta con un menú inicial, que permite usar eye-tracking para interactuar con los botones y elegir el minijuego en cuestión. 
+
+Se cuenta con el primer minijuego, que consiste en atrapar portales y esquivar meteoritos que se acercan hacia el jugador.
 Se debe mirar en la dirección del portal y no al meteorito, acumulando puntos y un combo, que aumenta la velocidad de los elementos en pantalla y acelera la música.
 
-## WIP
+También se cuenta con el segundo minijuego, donde se debe mirar a la comida saludable y evitar la comida chatarra, teniendo tres vidas en total.
 
-Se está desarrollando el segundo minijuego, motivado por el popular Fruit Ninja, existirán frutas y dulces que aparecerán desde diferentes direcciones de la pantalla y el jugador deberá mirar a las frutas por una cantidad X de tiempo para obtener puntos, si mira los dulces este perderá una vida.
+Ambos juegos tienen un texto inicial que representa el tutorial correspondiente.
 
 ## Configuración previa
 
@@ -23,8 +25,8 @@ Para instalar el juego en el casco se hace uso de la herramienta [Sidequest](htt
 
 Finalmente, es necesario mostrar las apps de origen desconocido en el casco, donde aparecerá el juego seleccionable.
 
-## Bugs conocidos y trabajo a futuro
+## Trabajo futuro
 
-El primer minijuego no posee la precisión suficiente con la detección de los ojos, la cual podría ser mejorada cambiando el objeto con el que chocan los rayos emitidos desde los ojos. La idea sería cambiar el plano por una pantalla curva, similar a un lente, para ajustar la posición del Player de manera más precisa. 
+Se usaron assets gratuitos y placeholders gráficos que podrían cambiarse.
 
-Se agregará una tabla de leaderboards con los puntajes de cada persona, junto con una forma de identificar al jugador.
+Se tenía pensado agregar una leaderboard durante la memoria que, finalmente, no se incluyó.
